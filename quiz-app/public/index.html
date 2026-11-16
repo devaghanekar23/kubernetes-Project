@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>QuizMaster - General Knowledge Quiz</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="app">
+
+    <!-- =========================
+         START SCREEN
+    ========================== -->
+
+    <section id="start" class="screen start-screen">
+
+      <div class="brand">
+        <div class="logo">Q</div>
+        <span>QuizMaster</span>
+      </div>
+
+      <div class="hero">
+
+        <div class="badge">
+          🧠 General Knowledge Quiz
+        </div>
+
+        <h1>
+          Test Your
+          <span>Knowledge.</span>
+        </h1>
+
+        <p class="hero-text">
+          Choose a category and challenge yourself with
+          interesting questions.
+        </p>
+        <p>Improve Your Knowledge</p>
+
+
+        <!-- CATEGORY SECTION -->
+
+        <div class="category-section">
+
+          <h2>Choose Your Category</h2>
+
+          <p class="category-subtitle">
+            Select one category to start your quiz
+          </p>
+
+
+          <div class="categories">
+
+            <button
+              class="category-card"
+              data-category="Geography"
+              type="button"
+            >
+              <span class="category-icon">🌍</span>
+
+              <div>
+                <strong>Geography</strong>
+                <small>World & Places</small>
+              </div>
+            </button>
+
+
+            <button
+              class="category-card"
+              data-category="Science"
+              type="button"
+            >
+              <span class="category-icon">🔬</span>
+
+              <div>
+                <strong>Science</strong>
+                <small>Science & Space</small>
+              </div>
+            </button>
+
+
+            <button
+              class="category-card"
+              data-category="Technology"
+              type="button"
+            >
+              <span class="category-icon">💻</span>
+
+              <div>
+                <strong>Technology</strong>
+                <small>Tech & Innovation</small>
+              </div>
+            </button>
+
+
+            <button
+              class="category-card"
+              data-category="History"
+              type="button"
+            >
+              <span class="category-icon">📜</span>
+
+              <div>
+                <strong>History</strong>
+                <small>Past & Events</small>
+              </div>
+            </button>
+
+
+            <button
+              class="category-card"
+              data-category="Sports"
+              type="button"
+            >
+              <span class="category-icon">🏏</span>
+
+              <div>
+                <strong>Sports</strong>
+                <small>Games & Records</small>
+              </div>
+            </button>
+
+
+            <button
+              class="category-card"
+              data-category="Current Affairs"
+              type="button"
+            >
+              <span class="category-icon">📰</span>
+
+              <div>
+                <strong>Current Affairs</strong>
+                <small>Latest Events</small>
+              </div>
+            </button>
+
+          </div>
+
+
+          <p
+            id="selectedCategory"
+            class="selected-category"
+          >
+            Please select a category
+          </p>
+
+        </div>
+
+      <!-- DIFFICULTY SECTION -->
+
+        <div class="difficulty-section">
+        
+          <h2>Choose Difficulty</h2>
+        
+          <p class="difficulty-subtitle">
+            Select your quiz difficulty
+          </p>
+        
+          <div class="difficulty-options">
+          
+            <button
+              class="difficulty-card"
+              data-difficulty="Easy"
+              type="button"
+            >
+              <span class="difficulty-icon">🟢</span>
+          
+              <div>
+                <strong>Easy</strong>
+                <small>Basic Questions</small>
+              </div>
+            </button>
+          
+          
+            <button
+              class="difficulty-card"
+              data-difficulty="Medium"
+              type="button"
+            >
+              <span class="difficulty-icon">🟡</span>
+          
+              <div>
+                <strong>Medium</strong>
+                <small>Moderate Questions</small>
+              </div>
+            </button>
+          
+          
+            <button
+              class="difficulty-card"
+              data-difficulty="Hard"
+              type="button"
+            >
+              <span class="difficulty-icon">🔴</span>
+          
+              <div>
+                <strong>Hard</strong>
+                <small>Challenging Questions</small>
+              </div>
+            </button>
+          
+          </div>
+        
+          <p id="selectedDifficulty" class="selected-difficulty">
+            Please select difficulty
+          </p>
+        
+        </div>
+        <!-- QUIZ INFO -->
+
+        <div class="quiz-info">
+
+          <div class="info-card">
+
+            <span class="info-icon">📝</span>
+
+            <div>
+              <strong>10</strong>
+              <small>Questions</small>
+            </div>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <span class="info-icon">⏱️</span>
+
+            <div>
+              <strong>~3</strong>
+              <small>Minutes</small>
+            </div>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <span class="info-icon">🎯</span>
+
+            <div>
+              <strong>10</strong>
+              <small>Points</small>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- START BUTTON -->
+
+        <button
+          id="startBtn"
+          class="primary start-button"
+          type="button"
+          disabled
+        >
+          Select Category
+          <span>→</span>
+        </button>
+
+
+        <p class="small-text">
+          No registration required • Free to play
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUIZ SCREEN
+    ========================== -->
+
+    <section id="quiz" class="screen hidden">
+
+      <div class="quiz-header">
+
+        <div class="quiz-title">
+          QuizMaster
+        </div>
+
+        <div class="header-actions">
+          <button id="homeBtn" class="home-btn" type="button" title="Go to Home">
+            🏠 Home
+          </button>
+        </div>
+
+        <div class="score-box">
+          Score: <span id="score">0</span>
+        </div>
+
+      </div>
+
+
+      <div class="quiz-content">
+
+        <div class="question-meta">
+
+          <span id="progress">
+            Question 1 of 10
+          </span>
+        
+          <span
+            id="category"
+            class="category"
+          >
+            Geography
+          </span>
+        
+          <span
+            id="difficulty"
+            class="difficulty"
+          >
+            Easy
+          </span>
+
+        </div>
+
+
+        <div class="progress-container">
+
+          <div class="progress-bar">
+
+            <div
+              id="barFill"
+              class="bar-fill"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="questionNumber"
+          class="question-number"
+        >
+          01
+        </div>
+
+
+        <h2
+          id="question"
+          class="question"
+        >
+          Question will appear here
+        </h2>
+
+
+        <div
+          id="options"
+          class="options"
+        ></div>
+
+
+        <div
+          id="feedback"
+          class="feedback"
+        ></div>
+
+
+        <button
+          id="nextBtn"
+          class="next-button hidden"
+          type="button"
+        >
+          Next Question
+          <span>→</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESULT SCREEN
+    ========================== -->
+
+    <section
+      id="result"
+      class="screen hidden"
+    >
+
+      <div class="result-icon">
+        🏆
+      </div>
+
+
+      <h2 class="result-title">
+        Quiz Complete!
+      </h2>
+
+
+      <p
+        id="message"
+        class="result-message"
+      >
+        Great work!
+      </p>
+
+
+      <div
+        id="finalScore"
+        class="final-score"
+      >
+        0/10
+      </div>
+
+
+      <div
+        id="percentage"
+        class="percentage"
+      >
+        0%
+      </div>
+
+
+      <div class="result-stats">
+
+        <div class="result-stat">
+
+          <strong id="correctAnswers">
+            0
+          </strong>
+
+          <span>
+            Correct
+          </span>
+
+        </div>
+
+
+        <div class="result-stat">
+
+          <strong id="wrongAnswers">
+            0
+          </strong>
+
+          <span>
+            Wrong
+          </span>
+
+        </div>
+
+
+        <div class="result-stat">
+
+          <strong id="totalQuestions">
+            10
+          </strong>
+
+          <span>
+            Total
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="restartBtn"
+        class="restart-button"
+        type="button"
+      >
+        Play Again
+        <span>→</span>
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
